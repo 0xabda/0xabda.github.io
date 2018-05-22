@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Naim A.</title>
+    <link>https://abda.nl/</link>
+    <description>Recent content on Naim A.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2017 21:45:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://abda.nl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure Contact Form</title>
+      <link>https://abda.nl/posts/2017/11/secure-contact-form/</link>
+      <pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate>
+      
+      <guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid>
+      <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
+At first, I quickly searched for blogging software that would suite my needs and found Hugo. I like the idea of a static website because:
+ Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description>
+    </item>
+    
+    <item>
+      <title>New Blog</title>
+      <link>https://abda.nl/posts/2017/11/new-blog/</link>
+      <pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate>
+      
+      <guid>https://abda.nl/posts/2017/11/new-blog/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve decided to get a domain that would match my name.&lt;/p&gt;
+
+&lt;p&gt;But having a domain that has no content when browsed to, seems like an odd thing to do.
+Therefore, I&amp;rsquo;ve created this blog.&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Contact</title>
+      <link>https://abda.nl/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://abda.nl/contact/</guid>
+      <description>You can contact me in several ways. You could send me an email or fill in this form:       Send Message will be sent using formspree.io   input, button, textarea { border-radius: 4px 4px 4px 4px; border: 1px solid black; padding: 10px 10px 10px 10px; margin: 5px 5px 5px 5px; } form { max-width: 600px; margin-left: 10%; margin-top: 10px; } input, textarea { width: 100%; } textarea { height: 200px; } button { background-color: #20ef20; font-weight: bold; cursor: pointer; float: right; }     </description>
+    </item>
+    
+  </channel>
+</rss>
