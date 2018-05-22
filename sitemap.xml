@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://abda.nl/projects/</loc>
+    <lastmod>2018-05-22T11:30:57+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://abda.nl/posts/2017/11/secure-contact-form/</loc>
     <lastmod>2017-11-26T21:45:00+02:00</lastmod>
   </url>
@@ -29,7 +34,7 @@
   
   <url>
     <loc>https://abda.nl/</loc>
-    <lastmod>2017-11-26T21:45:00+02:00</lastmod>
+    <lastmod>2018-05-22T11:30:57+03:00</lastmod>
     <priority>0</priority>
   </url>
   
