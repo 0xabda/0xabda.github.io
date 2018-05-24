@@ -46,5 +46,13 @@
         });
     });
     var jsm = $('#isjsenabled');
-    jsm.html(jsm.html() + ", after PGP encryption using key 0x" + pubKey.keys[0].primaryKey.fingerprint.substr(-16, 16));
+    var fp = (function(fp, ml){
+        fp = fp.subarray(-ml);
+        var r='';
+        for(var i = 0;i<fp.length;++i) {
+            r+=fp[i].toString(16).padStart(2, '0');
+        }
+        return r;
+    })(pubKey.keys[0].primaryKey.fingerprint, 8);
+    jsm.html(jsm.html() + ", after PGP encryption using key 0x" + fp);
 })()
