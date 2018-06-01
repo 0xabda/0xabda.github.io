@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Naim A.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Nov 2017 21:45:00 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 31 May 2018 23:45:57 +0300</lastBuildDate>
     
 	<atom:link href="https://abda.nl/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>pwnable.tw CTF &#34;Start&#34;</title>
+      <link>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</link>
+      <pubDate>Thu, 31 May 2018 23:45:57 +0300</pubDate>
+      
+      <guid>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</guid>
+      <description>This post is a solution to pwnable.tw&amp;rsquo;s CTF &amp;ldquo;Start&amp;rdquo; challenge. If you&amp;rsquo;re planning to solve it yourself, please don&amp;rsquo;t cheat.
+How the challenge works  After solving a challenge, the flag is submitted. Flags can usually be found in /home/&amp;lt;challenge_name&amp;gt;/flag. Most challenges run on Ubuntu 16.04 docker containers. After analysis of the binary, you connect to chall.pwnable.tw on a port the changes per challenge - and run the exploit to get the flag.</description>
+    </item>
     
     <item>
       <title>Secure Contact Form</title>
