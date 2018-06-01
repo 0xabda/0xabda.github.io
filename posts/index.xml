@@ -18,7 +18,7 @@
       
       <guid>https://abda.nl/posts/2018/06/pwnable.tw-orw/</guid>
       <description>orw is the second stage available on pwnable.tw. The solution to the first level can be found here.
-This stage is primarily focued on writing shellcodes, generic exec shellcodes cannot be used due to a seccomp policy.
+This stage is primarily focused on writing shellcodes, generic exec shellcodes cannot be used due to a seccomp policy.
 The seccomp policy only allows open, read and write syscalls. Other then that, the program accepts a buffer (up to 200 bytes) and executes it.
 The shellcode  We can assemble the above shellcode using nasm with the following command: nasm -f bin sc.</description>
     </item>
