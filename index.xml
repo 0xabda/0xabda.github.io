@@ -1,78 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Naim A.</title>
-    <link>https://abda.nl/</link>
-    <description>Recent content on Naim A.</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 23 Feb 2019 20:50:00 +0300</lastBuildDate>
-    
-	<atom:link href="https://abda.nl/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Projects</title>
-      <link>https://abda.nl/projects/</link>
-      <pubDate>Sat, 23 Feb 2019 20:50:00 +0300</pubDate>
-      
-      <guid>https://abda.nl/projects/</guid>
-      <description>UDPT - A lightweight UDP torrent tracker, written in Rust (previously C++). VIX - Object Oriented python wrapper for VMWare&amp;rsquo;s VIX library.  Checkout more projects on GitHub.</description>
-    </item>
-    
-    <item>
-      <title>pwnable.tw &#34;orw&#34;</title>
-      <link>https://abda.nl/posts/2018/06/pwnable.tw-orw/</link>
-      <pubDate>Fri, 01 Jun 2018 18:16:00 +0300</pubDate>
-      
-      <guid>https://abda.nl/posts/2018/06/pwnable.tw-orw/</guid>
-      <description>orw is the second stage available on pwnable.tw. The solution to the first level can be found here.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Naim A.</title><link>https://abda.nl/</link><description>Recent content on Naim A.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 23 Feb 2019 20:50:00 +0300</lastBuildDate><atom:link href="https://abda.nl/index.xml" rel="self" type="application/rss+xml"/><item><title>Projects</title><link>https://abda.nl/projects/</link><pubDate>Sat, 23 Feb 2019 20:50:00 +0300</pubDate><guid>https://abda.nl/projects/</guid><description>UDPT - A lightweight UDP torrent tracker, written in Rust (previously C++). VIX - Object Oriented python wrapper for VMWare&amp;rsquo;s VIX library. Checkout more projects on GitHub.</description></item><item><title>pwnable.tw &#34;orw&#34;</title><link>https://abda.nl/posts/2018/06/pwnable.tw-orw/</link><pubDate>Fri, 01 Jun 2018 18:16:00 +0300</pubDate><guid>https://abda.nl/posts/2018/06/pwnable.tw-orw/</guid><description>orw is the second stage available on pwnable.tw. The solution to the first level can be found here.
 This stage is primarily focused on writing shellcodes, generic exec shellcodes cannot be used due to a seccomp policy.
 The seccomp policy only allows open, read and write syscalls. Other then that, the program accepts a buffer (up to 200 bytes) and executes it.
-The shellcode  We can assemble the above shellcode using nasm with the following command: nasm -f bin sc.</description>
-    </item>
-    
-    <item>
-      <title>pwnable.tw CTF &#34;Start&#34;</title>
-      <link>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</link>
-      <pubDate>Thu, 31 May 2018 23:45:57 +0300</pubDate>
-      
-      <guid>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</guid>
-      <description>This post is a solution to pwnable.tw&amp;rsquo;s CTF &amp;ldquo;Start&amp;rdquo; challenge. If you&amp;rsquo;re planning to solve it yourself, please don&amp;rsquo;t cheat.
-How the challenge works  After solving a challenge, the flag is submitted. Flags can usually be found in /home/&amp;lt;challenge_name&amp;gt;/flag. Most challenges run on Ubuntu 16.04 docker containers. After analysis of the binary, you connect to chall.pwnable.tw on a port the changes per challenge - and run the exploit to get the flag.</description>
-    </item>
-    
-    <item>
-      <title>Secure Contact Form</title>
-      <link>https://abda.nl/posts/2017/11/secure-contact-form/</link>
-      <pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate>
-      
-      <guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid>
-      <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
+The shellcode We can assemble the above shellcode using nasm with the following command: nasm -f bin sc.</description></item><item><title>pwnable.tw CTF &#34;Start&#34;</title><link>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</link><pubDate>Thu, 31 May 2018 23:45:57 +0300</pubDate><guid>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</guid><description>This post is a solution to pwnable.tw&amp;rsquo;s CTF &amp;ldquo;Start&amp;rdquo; challenge. If you&amp;rsquo;re planning to solve it yourself, please don&amp;rsquo;t cheat.
+How the challenge works After solving a challenge, the flag is submitted. Flags can usually be found in /home/&amp;lt;challenge_name&amp;gt;/flag. Most challenges run on Ubuntu 16.04 docker containers. After analysis of the binary, you connect to chall.pwnable.tw on a port the changes per challenge - and run the exploit to get the flag.</description></item><item><title>Secure Contact Form</title><link>https://abda.nl/posts/2017/11/secure-contact-form/</link><pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate><guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid><description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
 At first, I quickly searched for blogging software that would suite my needs and found Hugo. I like the idea of a static website because:
- Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description>
-    </item>
-    
-    <item>
-      <title>New Blog</title>
-      <link>https://abda.nl/posts/2017/11/new-blog/</link>
-      <pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate>
-      
-      <guid>https://abda.nl/posts/2017/11/new-blog/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve decided to get a domain that would match my name.&lt;/p&gt;
-
+Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description></item><item><title>New Blog</title><link>https://abda.nl/posts/2017/11/new-blog/</link><pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate><guid>https://abda.nl/posts/2017/11/new-blog/</guid><description>&lt;p&gt;I&amp;rsquo;ve decided to get a domain that would match my name.&lt;/p&gt;
 &lt;p&gt;But having a domain that has no content when browsed to, seems like an odd thing to do.
-Therefore, I&amp;rsquo;ve created this blog.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Contact</title>
-      <link>https://abda.nl/contact/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://abda.nl/contact/</guid>
-      <description> You can contact me in several ways. You could send me an email or fill in this form:       Send Message will be sent using formspree.io   input, button, textarea { border-radius: 4px 4px 4px 4px; border: 1px solid black; padding: 10px 10px 10px 10px; margin: 5px 5px 5px 5px; } form { max-width: 600px; margin-left: 10%; margin-top: 10px; } input, textarea { width: 100%; } textarea { height: 200px; } button { background-color: #20ef20; font-weight: bold; cursor: pointer; float: right; }     </description>
-    </item>
-    
-  </channel>
-</rss>
+Therefore, I&amp;rsquo;ve created this blog.&lt;/p&gt;</description></item><item><title>Contact</title><link>https://abda.nl/contact/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://abda.nl/contact/</guid><description> You can contact me in several ways. You could send me an email or fill in this form: Send Message will be sent using formspree.io input, button, textarea { border-radius: 4px 4px 4px 4px; border: 1px solid black; padding: 10px 10px 10px 10px; margin: 5px 5px 5px 5px; } form { max-width: 600px; margin-left: 10%; margin-top: 10px; } input, textarea { width: 100%; } textarea { height: 200px; } button { background-color: #20ef20; font-weight: bold; cursor: pointer; float: right; }</description></item><item><title>Donate</title><link>https://abda.nl/donate/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://abda.nl/donate/</guid><description>Like Naim&#39;s projects? Show your support!
+Donate $ Dear ,
+I have received your donation of . Thank you very much!
+Naim A. (function(){ var amount = document.getElementById(&#34;donate_amount&#34;); var is_valid_amount = function(n) { var v = Number(amount.value.trim()); if (Number.isNaN(v)) { // number is invalid. amount.style[&#34;border-color&#34;] = &#34;red&#34;; return false; } if (v</description></item></channel></rss>
