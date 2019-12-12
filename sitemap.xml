@@ -3,18 +3,33 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://abda.nl/tags/linux/</loc>
+    <lastmod>2019-12-12T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://abda.nl/</loc>
-    <lastmod>2019-02-23T20:50:00+03:00</lastmod>
+    <lastmod>2019-12-12T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abda.nl/posts/</loc>
+    <lastmod>2019-12-12T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abda.nl/tags/</loc>
+    <lastmod>2019-12-12T21:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://abda.nl/posts/2019/12/understanding-ptrace/</loc>
+    <lastmod>2019-12-12T21:00:00+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://abda.nl/projects/</loc>
     <lastmod>2019-02-23T20:50:00+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abda.nl/posts/</loc>
-    <lastmod>2018-06-01T18:16:00+03:00</lastmod>
   </url>
   
   <url>
@@ -39,11 +54,6 @@
   
   <url>
     <loc>https://abda.nl/posts/2017/11/secure-contact-form/</loc>
-    <lastmod>2017-11-26T21:45:00+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://abda.nl/tags/</loc>
     <lastmod>2017-11-26T21:45:00+02:00</lastmod>
   </url>
   

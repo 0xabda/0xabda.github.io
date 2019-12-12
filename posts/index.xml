@@ -6,10 +6,21 @@
     <description>Recent content in Posts on Naim A.</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Jun 2018 18:16:00 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2019 21:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://abda.nl/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Understanding ptrace</title>
+      <link>https://abda.nl/posts/2019/12/understanding-ptrace/</link>
+      <pubDate>Thu, 12 Dec 2019 21:00:00 +0000</pubDate>
+      
+      <guid>https://abda.nl/posts/2019/12/understanding-ptrace/</guid>
+      <description>Background ptrace is the only interface that the Linux kernel provides to debug applications. All *nix debuggers (such as gdb, or lldb) use it.
+But, there&#39;s a problem - it isn&#39;t easy to use.
+I was working on a project at work that required a way to pretty much check every syscall before allowing the program to execute it. This would be possible to script using gdb and python, except python would cause the debugged program (aka.</description>
+    </item>
     
     <item>
       <title>pwnable.tw &#34;orw&#34;</title>
