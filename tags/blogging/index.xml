@@ -1,5 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogging on Naim A.</title><link>https://abda.nl/tags/blogging/</link><description>Recent content in Blogging on Naim A.</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 26 Nov 2017 21:45:00 +0200</lastBuildDate><atom:link href="https://abda.nl/tags/blogging/index.xml" rel="self" type="application/rss+xml"/><item><title>Secure Contact Form</title><link>https://abda.nl/posts/2017/11/secure-contact-form/</link><pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate><guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid><description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogging on Naim A.</title>
+    <link>https://abda.nl/tags/blogging/</link>
+    <description>Recent content in Blogging on Naim A.</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 26 Nov 2017 21:45:00 +0200</lastBuildDate>
+    
+	<atom:link href="https://abda.nl/tags/blogging/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Secure Contact Form</title>
+      <link>https://abda.nl/posts/2017/11/secure-contact-form/</link>
+      <pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate>
+      
+      <guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid>
+      <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&#39;s contact form works.
 At first, I quickly searched for blogging software that would suite my needs and found Hugo. I like the idea of a static website because:
-Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description></item><item><title>New Blog</title><link>https://abda.nl/posts/2017/11/new-blog/</link><pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate><guid>https://abda.nl/posts/2017/11/new-blog/</guid><description>&lt;p&gt;I&amp;rsquo;ve decided to get a domain that would match my name.&lt;/p&gt;
+ Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description>
+    </item>
+    
+    <item>
+      <title>New Blog</title>
+      <link>https://abda.nl/posts/2017/11/new-blog/</link>
+      <pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate>
+      
+      <guid>https://abda.nl/posts/2017/11/new-blog/</guid>
+      <description>&lt;p&gt;I&#39;ve decided to get a domain that would match my name.&lt;/p&gt;
 &lt;p&gt;But having a domain that has no content when browsed to, seems like an odd thing to do.
-Therefore, I&amp;rsquo;ve created this blog.&lt;/p&gt;</description></item></channel></rss>
+Therefore, I&#39;ve created this blog.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
