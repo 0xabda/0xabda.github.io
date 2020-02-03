@@ -40,7 +40,7 @@
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.624134b411585efffadab6a91e7d0383f0d4e22ad49de3690eccbc96f528e670.css" integrity="sha256-YkE0tBFYXv/62rapHn0Dg/DU4irUneNpDsy8lvUo5nA=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -50,11 +50,13 @@
     
 
     
+
     
+
     <link rel="icon" type="image/png" href="https://abda.nl/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://abda.nl/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.63.2" />
   </head>
 
   
@@ -66,6 +68,7 @@
     <a class="navigation-title" href="/">
       Naim A.
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -86,6 +89,7 @@
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -108,7 +112,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              2 minutes read
+              2-minute read
             </span>
           </div>
           
@@ -117,7 +121,8 @@
       </header>
 
       <div>
-        <p>This post is a solution to <a href="https://pwnable.tw">pwnable.tw</a>&lsquo;s CTF &ldquo;Start&rdquo; challenge. If you're planning to solve it yourself, please don't cheat.</p>
+        
+        <p>This post is a solution to <a href="https://pwnable.tw">pwnable.tw</a>&lsquo;s CTF &ldquo;Start&rdquo; challenge. If you&rsquo;re planning to solve it yourself, please don&rsquo;t cheat.</p>
 <h2 id="how-the-challenge-works">How the challenge works</h2>
 <ul>
 <li>After solving a challenge, the flag is submitted.</li>
@@ -126,8 +131,8 @@
 <li>After analysis of the binary, you connect to chall.pwnable.tw on a port the changes per challenge - and run the exploit to get the flag.</li>
 </ul>
 <h2 id="start">&ldquo;Start&rdquo;</h2>
-<p>This challenge is a small (elf) executable, it's length is only 564 bytes.</p>
-<p>Here is it's disassembly:</p>
+<p>This challenge is a small (elf) executable, it&rsquo;s length is only 564 bytes.</p>
+<p>Here is it&rsquo;s disassembly:</p>
 <p><img src="/posts/2018/05/pwnable.tw-ctf-start/start-graph.png" alt="start.asm"></p>
 <p>As you can see, there are 5 pushes of constant numbers to the stack (0x0804806e-0x08048082). Each number contains bytes that can be ascii characters.
 After decoding, we get <code>Let's start the CTF:</code>.</p>
@@ -162,23 +167,24 @@ After decoding, we get <code>Let's start the CTF:</code>.</p>
 </tr>
 </tbody>
 </table>
-<p>Immediatly after writing &ldquo;Let's start the CTF:&quot;, the program wait for 0x3C (=60) bytes of input and writes it to $esp - At this point $esp is pointing to the beginning of the printed string.</p>
+<p>Immediatly after writing &ldquo;Let&rsquo;s start the CTF:&quot;, the program wait for 0x3C (=60) bytes of input and writes it to $esp - At this point $esp is pointing to the beginning of the printed string.</p>
 <p>Since the stack itself is 20 bytes long, we can control the return address!</p>
-<p>Since ASLR is enabled, we must first leak the stack's address.</p>
-<h2 id="leaking-the-stacks-address">Leaking the stack's address</h2>
+<p>Since ASLR is enabled, we must first leak the stack&rsquo;s address.</p>
+<h2 id="leaking-the-stacks-address">Leaking the stack&rsquo;s address</h2>
 <p>In order to print the string the code used $esp as a parameter for write(1, $esp, 4). This is great, because it means we can leak $esp.
 Leaking $esp is done by setting the return address to 0x08048087.
-This will cause the program to write 20 bytes of which the first 4 will contain $esp's value.</p>
+This will cause the program to write 20 bytes of which the first 4 will contain $esp&rsquo;s value.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">c<span style="color:#f92672">.</span>send(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">x</span><span style="color:#e6db74">&#39;</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">20</span> <span style="color:#f92672">+</span> pack(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&lt;I</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">0x08048087</span>))
 esp <span style="color:#f92672">=</span> unpack(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&lt;I</span><span style="color:#e6db74">&#39;</span>, c<span style="color:#f92672">.</span>recv(<span style="color:#ae81ff">0x100</span>)[:<span style="color:#ae81ff">4</span>])[<span style="color:#ae81ff">0</span>]</code></pre></div>
 <p>After sending the above payload, we will get $esp and the program will be expecting another (up to) 60 byte input.</p>
 <p>Now that we have $esp, we can use <code>ragg2 -i exec -b32</code> to generate a shellcode.
-The shellcode's input follows the shellcode.</p>
+The shellcode&rsquo;s input follows the shellcode.</p>
 <h2 id="full-solution">Full solution</h2>
 <script type="application/javascript" src="https://gist.github.com/naim94a/3e3eaf259e6ee13190c39f782534f90d.js"></script>
 
 
       </div>
+
 
       <footer>
         
@@ -216,6 +222,14 @@ The shellcode's input follows the shellcode.</p>
 
       <footer class="footer">
   <section class="container">
+    
+      <p><script>
+if (window.location.href.toLowerCase().indexOf("/contact/") == -1) {
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js', a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o311b'); twq('track','PageView');
+}
+</script>
+</p>
     
     
     

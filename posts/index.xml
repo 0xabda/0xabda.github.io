@@ -18,7 +18,7 @@
       
       <guid>https://abda.nl/posts/2019/12/understanding-ptrace/</guid>
       <description>Background ptrace is the only interface that the Linux kernel provides to debug applications. All *nix debuggers (such as gdb, or lldb) use it.
-But, there&#39;s a problem - it isn&#39;t easy to use.
+But, there&amp;rsquo;s a problem - it isn&amp;rsquo;t easy to use.
 I was working on a project at work that required a way to pretty much check every syscall before allowing the program to execute it. This would be possible to script using gdb and python, except python would cause the debugged program (aka.</description>
     </item>
     
@@ -40,7 +40,7 @@ The shellcode  We can assemble the above shellcode using nasm with the following
       <pubDate>Thu, 31 May 2018 23:45:57 +0300</pubDate>
       
       <guid>https://abda.nl/posts/2018/05/pwnable.tw-ctf-start/</guid>
-      <description>This post is a solution to pwnable.tw&amp;lsquo;s CTF &amp;ldquo;Start&amp;rdquo; challenge. If you&#39;re planning to solve it yourself, please don&#39;t cheat.
+      <description>This post is a solution to pwnable.tw&amp;lsquo;s CTF &amp;ldquo;Start&amp;rdquo; challenge. If you&amp;rsquo;re planning to solve it yourself, please don&amp;rsquo;t cheat.
 How the challenge works  After solving a challenge, the flag is submitted. Flags can usually be found in /home/&amp;lt;challenge_name&amp;gt;/flag. Most challenges run on Ubuntu 16.04 docker containers. After analysis of the binary, you connect to chall.pwnable.tw on a port the changes per challenge - and run the exploit to get the flag.</description>
     </item>
     
@@ -50,7 +50,7 @@ How the challenge works  After solving a challenge, the flag is submitted. Flags
       <pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate>
       
       <guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid>
-      <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&#39;s contact form works.
+      <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
 At first, I quickly searched for blogging software that would suite my needs and found Hugo. I like the idea of a static website because:
  Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description>
     </item>
@@ -61,9 +61,9 @@ At first, I quickly searched for blogging software that would suite my needs and
       <pubDate>Sun, 26 Nov 2017 21:20:00 +0200</pubDate>
       
       <guid>https://abda.nl/posts/2017/11/new-blog/</guid>
-      <description>&lt;p&gt;I&#39;ve decided to get a domain that would match my name.&lt;/p&gt;
+      <description>&lt;p&gt;I&amp;rsquo;ve decided to get a domain that would match my name.&lt;/p&gt;
 &lt;p&gt;But having a domain that has no content when browsed to, seems like an odd thing to do.
-Therefore, I&#39;ve created this blog.&lt;/p&gt;</description>
+Therefore, I&amp;rsquo;ve created this blog.&lt;/p&gt;</description>
     </item>
     
   </channel>

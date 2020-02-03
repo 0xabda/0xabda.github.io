@@ -18,7 +18,7 @@
       
       <guid>https://abda.nl/posts/2019/12/understanding-ptrace/</guid>
       <description>Background ptrace is the only interface that the Linux kernel provides to debug applications. All *nix debuggers (such as gdb, or lldb) use it.
-But, there&#39;s a problem - it isn&#39;t easy to use.
+But, there&amp;rsquo;s a problem - it isn&amp;rsquo;t easy to use.
 I was working on a project at work that required a way to pretty much check every syscall before allowing the program to execute it. This would be possible to script using gdb and python, except python would cause the debugged program (aka.</description>
     </item>
     

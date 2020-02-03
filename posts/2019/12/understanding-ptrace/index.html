@@ -42,7 +42,7 @@
     
       
       
-      <link rel="stylesheet" href="/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.624134b411585efffadab6a91e7d0383f0d4e22ad49de3690eccbc96f528e670.css" integrity="sha256-YkE0tBFYXv/62rapHn0Dg/DU4irUneNpDsy8lvUo5nA=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -52,11 +52,13 @@
     
 
     
+
     
+
     <link rel="icon" type="image/png" href="https://abda.nl/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://abda.nl/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.61.0" />
+    <meta name="generator" content="Hugo 0.63.2" />
   </head>
 
   
@@ -68,6 +70,7 @@
     <a class="navigation-title" href="/">
       Naim A.
     </a>
+    
     <input type="checkbox" id="menu-toggle" />
     <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
     <ul class="navigation-list">
@@ -88,6 +91,7 @@
       
       
     </ul>
+    
   </section>
 </nav>
 
@@ -110,7 +114,7 @@
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              6 minutes read
+              6-minute read
             </span>
           </div>
           
@@ -122,10 +126,10 @@
       </header>
 
       <div>
-        <!-- ![](ptrace-tracer-cover.png) -->
-<h2 id="background">Background</h2>
+        
+        <h2 id="background">Background</h2>
 <p><code>ptrace</code> is the only interface that the Linux kernel provides to debug applications. All *nix debuggers (such as <code>gdb</code>, or <code>lldb</code>) use it.</p>
-<p>But, there's a problem - it isn't easy to use.</p>
+<p>But, there&rsquo;s a problem - it isn&rsquo;t easy to use.</p>
 <p>I was working on a project at work that required a way to pretty much check every syscall before allowing the program to execute it. This would be possible to script using gdb and python, except python would cause the debugged program (aka. tracee) to run really slowly. So, I started working on my own solution - I started writing a program that would directly use the ptrace API.</p>
 <h2 id="ptrace-overview">ptrace Overview</h2>
 <p>A process can either be Running or Stopped.</p>
@@ -136,12 +140,12 @@
 <li>PTRACE_INTERRUPT</li>
 <li>PTRACE_KILL</li>
 </ul>
-<p>All other ptrace requests are only valid for Stopped tracees (except PTRACE_TRACEME which we're not going to look into).</p>
+<p>All other ptrace requests are only valid for Stopped tracees (except PTRACE_TRACEME which we&rsquo;re not going to look into).</p>
 <h2 id="writing-a-process-tracer">Writing a process tracer</h2>
 <p>A quick overview of how a tracer should work:</p>
 <ol>
 <li>Attach to the target tracee(s)</li>
-<li>If you're working with breakpoints, now's a good time to set them (by pushing int3s, assuming x86).</li>
+<li>If you&rsquo;re working with breakpoints, now&rsquo;s a good time to set them (by pushing int3s, assuming x86).</li>
 <li>Tell the kernel to stop when something happens (syscall?, single stepping?, you decide).</li>
 <li>Handle the situation when you recieve a ptrace-stop.</li>
 <li>Repeat step 3&hellip;</li>
@@ -149,7 +153,7 @@
 <h3 id="attaching">Attaching</h3>
 <p><code>ptrace</code> provides to ways to attach a process. The first way is using <code>PTRACE_ATTACH</code>, the second is <code>PTRACE_SEIZE</code>.</p>
 <p>I originally used the attach method, but then moved to the seize method (explained later).</p>
-<p>Once a PTRACE_ATTACH is requested, you must wait on the pid (to make sure it's in a stopped state), set tracer options (with PTRACE_SETOPTIONS) if needed, and then either PTRACE_CONT or PTRACE_SYSCALL to continue.</p>
+<p>Once a PTRACE_ATTACH is requested, you must wait on the pid (to make sure it&rsquo;s in a stopped state), set tracer options (with PTRACE_SETOPTIONS) if needed, and then either PTRACE_CONT or PTRACE_SYSCALL to continue.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">/* attach */</span>
 ptrace(PTRACE_ATTACH, pid, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
 
@@ -175,11 +179,11 @@ ptrace(PTRACE_SYSCALL, pid, <span style="color:#ae81ff">0</span>, <span style="c
 </code></pre></div><h3 id="setting-ptrace-options">Setting ptrace options</h3>
 <p>Setting ptrace options is good if you want to get ptrace-stops for forks/execves/clones/exits etc&hellip;
 these constant start with PTRACE_O_*.</p>
-<p>Settings ptrace options is done with the PTRACE_SETOPTIONS request, unless you're running a kernel before Linux 2.4. If you're running Linux 2.4 or below you'll need to set options with PTRACE_OLDSETOPTIONS.</p>
-<p>Instead of dealing with ptrace's constants madness, I went for what looked like a more stable request - I changed my program to <code>PTRACE_SEIZE</code>. You should note that ptrace's behavious changes in some cases when switching to the SEIZE method. Unlike PTRACE_ATTACH, detecting a group stop is possible without calling PTRACE_GETSIGINFO under PTRACE_SEIZE.</p>
+<p>Settings ptrace options is done with the PTRACE_SETOPTIONS request, unless you&rsquo;re running a kernel before Linux 2.4. If you&rsquo;re running Linux 2.4 or below you&rsquo;ll need to set options with PTRACE_OLDSETOPTIONS.</p>
+<p>Instead of dealing with ptrace&rsquo;s constants madness, I went for what looked like a more stable request - I changed my program to <code>PTRACE_SEIZE</code>. You should note that ptrace&rsquo;s behavious changes in some cases when switching to the SEIZE method. Unlike PTRACE_ATTACH, detecting a group stop is possible without calling PTRACE_GETSIGINFO under PTRACE_SEIZE.</p>
 <h3 id="seizing">Seizing</h3>
-<p>Seizing a process turns the target process into a tracer's tracee, but unlike PTRACE_ATTACH the tracee isn't stopped (SIGSTOP will not be sent) &amp; allows you to set ptrace options at the same time!</p>
-<p>Once you've seized your process, you should PTRACE_INTERRUPT your tracee if you want to set breakpoints or tell ptrace when you want to stop (if the stops you want aren't already available in ptrace's options).</p>
+<p>Seizing a process turns the target process into a tracer&rsquo;s tracee, but unlike PTRACE_ATTACH the tracee isn&rsquo;t stopped (SIGSTOP will not be sent) &amp; allows you to set ptrace options at the same time!</p>
+<p>Once you&rsquo;ve seized your process, you should PTRACE_INTERRUPT your tracee if you want to set breakpoints or tell ptrace when you want to stop (if the stops you want aren&rsquo;t already available in ptrace&rsquo;s options).</p>
 <p>After switching to the seize method, my code started with something like this</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">ptrace(PTRACE_SEIZE, pid, <span style="color:#ae81ff">0</span>, PTRACE_O_SYSVGOOD);
 ptrace(PTRACE_INTERRUPT, pid, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
@@ -192,8 +196,8 @@ ptrace(PTRACE_SYSCALL, pid, <span style="color:#ae81ff">0</span>, <span style="c
     ptrace(PTRACE_SYSCALL, pid, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
 }
 </code></pre></div><h3 id="getting-ptrace-stops">Getting ptrace stops</h3>
-<p>Now that you've got your process attached, it's time to actually get work done.
-The tracer I wrote didn't require any breakpoints, only syscalls. So I called ptrace with a <code>PTRACE_SYSCALL</code> and waited for a ptrace stops using <code>waitpid(2)</code>.</p>
+<p>Now that you&rsquo;ve got your process attached, it&rsquo;s time to actually get work done.
+The tracer I wrote didn&rsquo;t require any breakpoints, only syscalls. So I called ptrace with a <code>PTRACE_SYSCALL</code> and waited for a ptrace stops using <code>waitpid(2)</code>.</p>
 <h4 id="ptrace-stop-types">ptrace stop types</h4>
 <p>Possible types of stops:</p>
 <ul>
@@ -217,27 +221,28 @@ It will set the status to <code>status &gt;&gt; 8 == (SIGTRAP|0x80)</code>.</p>
 <p>If the tracee was attached using the seize method, you can distinguish group-stops by comparing <code>status&gt;&gt;16==PTRACE_EVENT_STOP</code>.</p>
 <h4 id="waitpid">waitpid</h4>
 <p><code>waitpid</code> is how we wait for ptrace to report an event. How can you do that on multiple processes?</p>
-<p>I originally looked through waitpid and tried to use the <code>WNOHANG</code> flag, it kind of worked but CPU was at 100% on one core which isn't really optimal. I then tried to create multiple threads, which didn't work since the thread that attaches the tracee is the only thread that can issue ptrace requests for that process (every thread has it's own PID).</p>
+<p>I originally looked through waitpid and tried to use the <code>WNOHANG</code> flag, it kind of worked but CPU was at 100% on one core which isn&rsquo;t really optimal. I then tried to create multiple threads, which didn&rsquo;t work since the thread that attaches the tracee is the only thread that can issue ptrace requests for that process (every thread has it&rsquo;s own PID).</p>
 <p>Apperantly tracees are similar to child processes of the tracer. I later found out that -1 can be used with waitpid as well (usually for child processes).</p>
-<p>waitpid with -1 is great because waitpid returns the pid. More information about the stop can be determined from waitpid's returned status.</p>
+<p>waitpid with -1 is great because waitpid returns the pid. More information about the stop can be determined from waitpid&rsquo;s returned status.</p>
 <h3 id="reading-process-data">Reading process data</h3>
 <p>It is possible to read registers using PTRACE_GETREGS, It will copy register values to the <code>user_regs_struct</code> that you can pass to the data argument of ptrace.</p>
-<p>ptrace doesn't provide a good way to read process memory. Using ptrace's <code>PTRACE_PEEKDATA</code> will allow you to read 2 bytes from the tracee, but that would be too slow for any normal sized buffer (too many syscalls). If you do decide to use <code>PTRACE_PEEKDATA</code>, make sure to clear <code>errno</code> and check it if ptrace returns -1 (that might actually be the value from the process).</p>
+<p>ptrace doesn&rsquo;t provide a good way to read process memory. Using ptrace&rsquo;s <code>PTRACE_PEEKDATA</code> will allow you to read 2 bytes from the tracee, but that would be too slow for any normal sized buffer (too many syscalls). If you do decide to use <code>PTRACE_PEEKDATA</code>, make sure to clear <code>errno</code> and check it if ptrace returns -1 (that might actually be the value from the process).</p>
 <p>Better ways to read data would include:</p>
 <ol>
 <li>Using <code>process_vm_readv</code> syscall is the best option in my opinion.</li>
-<li>Using <code>/proc/&lt;pid&gt;/mem</code> might also be a good option, but doesn't exist on as many platforms and doesn't seem as light as process_vm_readv. WSL doesn't support this (last time i tried at least).</li>
+<li>Using <code>/proc/&lt;pid&gt;/mem</code> might also be a good option, but doesn&rsquo;t exist on as many platforms and doesn&rsquo;t seem as light as process_vm_readv. WSL doesn&rsquo;t support this (last time i tried at least).</li>
 </ol>
 <h3 id="notestips">Notes/Tips</h3>
 <ul>
-<li>If your process needs to execute a SUID, it won't work under a non-root tracer.</li>
-<li>Try not to call syscalls as much as you can. They'll slow you down.</li>
+<li>If your process needs to execute a SUID, it won&rsquo;t work under a non-root tracer.</li>
+<li>Try not to call syscalls as much as you can. They&rsquo;ll slow you down.</li>
 <li>Unexpected errors may occur (espacially when tracing programs), try to handle all errors.</li>
 <li>In this post I only focused on retrieving data from tracees, similar requests exist to write data (PTRACE_POKEDATA, PTRACE_SETREGS, process_vm_writev, etc&hellip;)</li>
 <li>Please leave comments!</li>
 </ul>
 
       </div>
+
 
       <footer>
         
@@ -275,6 +280,14 @@ It will set the status to <code>status &gt;&gt; 8 == (SIGTRAP|0x80)</code>.</p>
 
       <footer class="footer">
   <section class="container">
+    
+      <p><script>
+if (window.location.href.toLowerCase().indexOf("/contact/") == -1) {
+  !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);},s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js', a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+  twq('init','o311b'); twq('track','PageView');
+}
+</script>
+</p>
     
     
     
