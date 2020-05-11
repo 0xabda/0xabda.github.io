@@ -13,10 +13,10 @@
     
     <item>
       <title>Secure Contact Form</title>
-      <link>https://abda.nl/posts/2017/11/secure-contact-form/</link>
+      <link>https://abda.nl/posts/secure-contact-form/</link>
       <pubDate>Sun, 26 Nov 2017 21:45:00 +0200</pubDate>
       
-      <guid>https://abda.nl/posts/2017/11/secure-contact-form/</guid>
+      <guid>https://abda.nl/posts/secure-contact-form/</guid>
       <description>Choosing a CMS In a previous post I mentioned why this blog was created. This post will present how it&amp;rsquo;s contact form works.
 At first, I quickly searched for blogging software that would suite my needs and found Hugo. I like the idea of a static website because:
  Generated files are static - They will faster when compared to loading from a database. There is no database that can fail on you (except the hard-drive of the server).</description>

@@ -10,26 +10,27 @@
     <meta name="keywords" content="Naim A., Portfolio, Blog, Security, Software, Networking, Reverse Engineering">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Contact"/>
-<meta name="twitter:description" content="Contact Naim A."/>
+<meta name="twitter:title" content="pwnable.tw &#34;orw&#34;"/>
+<meta name="twitter:description" content="A solution to pwnable.tw&#39;s orw CTF challenge"/>
 <meta name="twitter:site" content="@naim94a"/>
 
-    <meta property="og:title" content="Contact" />
-<meta property="og:description" content="Contact Naim A." />
+    <meta property="og:title" content="pwnable.tw &#34;orw&#34;" />
+<meta property="og:description" content="A solution to pwnable.tw&#39;s orw CTF challenge" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://abda.nl/contact/" />
-
+<meta property="og:url" content="https://abda.nl/posts/pwnable.tw-orw/" />
+<meta property="article:published_time" content="2018-06-01T18:16:00+03:00" />
+<meta property="article:modified_time" content="2018-06-01T18:16:00+03:00" />
 
 
     
-      <base href="https://abda.nl/contact/">
+      <base href="https://abda.nl/posts/pwnable.tw-orw/">
     
     <title>
-  Contact · Naim A.
+  pwnable.tw &#34;orw&#34; · Naim A.
 </title>
 
     
-      <link rel="canonical" href="https://abda.nl/contact/">
+      <link rel="canonical" href="https://abda.nl/posts/pwnable.tw-orw/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -95,63 +96,76 @@
 
       <div class="content">
         
-  <section class="container page">
-  <article>
-    <header>
-      <h1>Contact</h1>
-    </header>
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">pwnable.tw &#34;orw&#34;</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-06-01T18:16:00&#43;03:00'>
+                June 1, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              1-minute read
+            </span>
+          </div>
+          
+          
+        </div>
+      </header>
+
+      <div>
+        
+        <p><code>orw</code> is the second stage available on pwnable.tw. The solution to the first level can be found <a href="https://abda.nl/posts/pwnable.tw-ctf-start/">here</a>.</p>
+<p>This stage is primarily focused on writing shellcodes, generic exec shellcodes cannot be used due to a seccomp policy.</p>
+<p>The seccomp policy only allows <code>open</code>, <code>read</code> and <code>write</code> syscalls. Other then that, the program accepts a buffer (up to 200 bytes) and executes it.</p>
+<h3 id="the-shellcode">The shellcode</h3>
+<script type="application/javascript" src="https://gist.github.com/naim94a/ba93235800d488def220ab6f814d1923.js"></script>
+
+<p>We can assemble the above shellcode using <code>nasm</code> with the following command:
+<code>nasm -f bin sc.asm</code>.</p>
+<p>Once we have the shellcode we can execute it: <code>nc -vvv chall.pwnable.tw 10001 &lt; sc</code>, and then get the stage&rsquo;s flag!</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "abda-nl" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
+        
+      </footer>
+    </article>
 
     
-You can contact me in several ways. You could send me an <a href="mailto:naim@abda.nl">email</a> or fill in this form:
-
-<form method="POST" action="https://formspree.io/naim@abda.nl">
-	<div>
-		<input type="email" placeholder="email" name="email" />
-	</div>
-	<div>
-		<textarea name="message" placeholder="How can I help?"></textarea>
-	</div>
-	<div>
-		<button type="submit">Send</button>
-		<span id="isjsenabled" style="font-size: x-small">Message will be sent using <a href="https://formspree.io">formspree.io</a></span>
-	</div>
-</form>
-<style type="text/css">
-	input, button, textarea {
-		border-radius: 4px 4px 4px 4px;
-		border: 1px solid black;
-		padding: 10px 10px 10px 10px;
-		margin: 5px 5px 5px 5px;
-	}
-
-	form {
-		max-width: 600px;
-		margin-left: 10%;
-		margin-top: 10px;
-	}
-
-	input, textarea {
-		width: 100%;
-	}
-
-	textarea {
-		height: 200px;
-	}
-
-	button {
-		background-color: #20ef20;
-		font-weight: bold;
-		cursor: pointer;
-		float: right;
-	}
-</style>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/openpgp/3.0.11/openpgp.min.js" integrity="sha256-5pvE7BtRMsTqEKvG2Qt4qMl/Mx87i4CmJPwLZmtclJw=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/js/contact.js"></script>
-
-  </article>
-</section>
-
+  </section>
 
       </div>
 
